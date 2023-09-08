@@ -1,6 +1,14 @@
-
-
-
+#' Dijkstra's algorithm
+#'
+#' @param graph A data.frame with variables v1, v2, w containing numeric elements.
+#' @param init_node A numeric element.
+#'
+#' @return A numeric vector.
+#' @export
+#'
+#' @examples
+#' graph <- data.frame(v1=c(...), v2=c(...), w=c(...))
+#' dijkstra(graph, 2)
 dijkstra <- function(graph, init_node){
   # This function does ...
 
@@ -19,6 +27,9 @@ dijkstra <- function(graph, init_node){
 
   return()
 }
+
+
+
 
 # TESTING
 #dijkstra(data.frame(v1=c(1,4,5), v2=c(7,8,0), w=c(1,2,3)), "input")
