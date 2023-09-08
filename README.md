@@ -15,6 +15,36 @@
 
 See the book [R Packages](https://r-pkgs.org/whole-game.html#sec-whole-game-load-all) by Wickham, Bryan for details about testing R packages.
 
+## Instructions for creating a new funtion for this package [Inspired by](https://r-pkgs.org/whole-game.html#sec-whole-game-document)
+
+* Select a name for the function, let's say `new_function`. Create a file called `new_function.R`.
+
+* Inside `new_function.R`, create the functions basic structure (definition).
+
+* In RStudio, put the cursor somewhere *inside* the function body. In the RStudio top menu's, go to `Code > Insert Roxygen Skeleton`.
+
+* Edit (as required) the Roxygen comment that has been added above the function definition.
+
+* In order to "trigger" this Roxygen comment, run `document()` in the R console (given that you are in the right directory).
+
+## Instructions for creating Unit Tests (for one file/function) [Inspired by](https://r-pkgs.org/whole-game.html#sec-whole-game-document)
+
+* In R console, load the `testthat` package.
+
+* Run the `use_testthat()` function.
+
+* Run `use_test("new_function")` where new_function is a function you wish to create unit tests for.
+
+* Create the unit tests yourself (using this template for reference):
+
+  ```
+  test_that("Text explaining what this test will test", {
+    expect_equal(new_function(arg1, arg2), expected_output)
+  })
+  ```
+
+* Finally you can test all your unit tests by running `test()` in the R console.
+
 ## Additional things to do (with this document)
 
 * Create a set of instructions for downloading and running this package.
