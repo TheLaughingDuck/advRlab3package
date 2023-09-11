@@ -85,13 +85,3 @@ dijkstra <- function(graph, init_node){
 
 # Should be moved somewhere else?
 library(magrittr)
-
-# TEST CASE 1
-#dijkstra(data.frame(v1=c(1,4,5,8,9), v2=c(7,8,0,2,1), w=c(1,2,3,1,1)), 4)
-
-# TEST CASE 2
-#graph <- data.frame(v1 = c(1,1,1,1,2,2,2,2,2,3,3,3,4,4,4,5,5,6,6,7,7,8,9,10,10,11), v2 = c(2,3,4,5,7,3,1,5,8,6,2,1,9,10,1,1,2,3,7,6,2,2,4,4,11,10), w = rep(1,26))
-#dijkstra(graph, 1)
-
-
-
