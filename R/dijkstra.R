@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-#' graph <- data.frame(v1=c(...), v2=c(...), w=c(...))
+#' graph <- data.frame(v1=c(2, 3, ...), v2=c(3, 2, ...), w=c(1, 1, ...))
 #' dijkstra(graph, 2)
 dijkstra <- function(graph, init_node){
   # This function does ...
@@ -71,10 +71,15 @@ dijkstra <- function(graph, init_node){
     # sort by tenta_dist, get firt row, get name of that row.
     #current_node <- arrange(nodes, tenta_dist)[1,]$name
 
-    if(nrow(nodes |> filter(visited == FALSE)) == 0){break}
+    if(nrow(nodes |> dplyr::filter(nodes$visited == FALSE)) == 0){break}
 
     # Filter out visited nodes, sort them by lowest tentative dist, extract col 1, and then
-    current_node <- nodes |> filter(visited == FALSE) |> arrange(tenta_dist) |> extract2(1) |> extract2(1)
+    current_node <- nodes |>
+      dplyr::filter(visited == FALSE) |>
+      dplyr::arrange(tenta_dist) |>
+      magrittr::extract2(1) |>
+      magrittr::extract2(1)
+
     #print(paste("making", current_node, "the current node"))
   }
 
@@ -82,6 +87,3 @@ dijkstra <- function(graph, init_node){
 
   return(nodes)
 }
-
-# Should be moved somewhere else?
-library(magrittr)
