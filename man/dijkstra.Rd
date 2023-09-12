@@ -7,17 +7,22 @@
 dijkstra(graph, init_node)
 }
 \arguments{
-\item{graph}{A data.frame with variables v1, v2, w containing numeric elements.}
+\item{graph}{A data.frame with variables \code{v1}, \code{v2}, w containing numeric elements,
+representing the edges of the graph. Arguments \code{v1} and \code{v2} specifies two nodes,
+and \code{w} specifies the weight or "distance" from node \code{v1} to node \code{v2}. Note that
+edges are expected to be defined both ways, e.g. \code{v1 = c(1,2)}, \code{v2 = c(2,1)}.}
 
-\item{init_node}{A numeric element.}
+\item{init_node}{A numeric indicating the initial node in the graph.}
 }
 \value{
-A numeric vector.
+A numeric vector containing the shortest distance to the respective
+nodes from the initial node, sorted by node names in \emph{ascending order}.
 }
 \description{
-Dijkstra's algorithm
+\code{dijkstra()} employs the dijkstra algorithm to find the shortest path to each
+node from a given starting node in a network graph.
 }
 \examples{
-graph <- data.frame(v1=c(...), v2=c(...), w=c(...))
+graph <- data.frame(v1=c(2, 3), v2=c(3, 2), w=c(1, 1))
 dijkstra(graph, 2)
 }

@@ -13,7 +13,7 @@ test_that("dijkstra() output is in correct format", {
 
   dijkstra_output <- dijkstra(graph, 4)
 
-  comparison <- length(dijkstra_output) == 3
+  comparison <- is.vector(dijkstra_output)
 
   expect_equal(TRUE, comparison)
 })
@@ -28,7 +28,9 @@ test_that("dijkstra() correctly works for a known graph", {
 
   dijkstra_output <- dijkstra(graph, 1)
 
-  expected_output <- data.frame(name=1:11, visited=rep(TRUE, 11), tenta_dist=c(0,1,1,1,1,2,2,2,2,2,3))
+  #expected_output <- data.frame(name=1:11, visited=rep(TRUE, 11), tenta_dist=c(0,1,1,1,1,2,2,2,2,2,3))
+
+  expected_output <- c(0,1,1,1,1,2,2,2,2,2,3)
 
   expect_equal(dijkstra_output, expected_output)
 })

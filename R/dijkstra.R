@@ -1,38 +1,45 @@
 #' Dijkstra's algorithm
 #'
-#' @param graph A data.frame with variables v1, v2, w containing numeric elements.
-#' @param init_node A numeric element.
+#' @description
+#' `dijkstra()` employs the dijkstra algorithm to find the shortest path to each
+#' node from a given starting node in a network graph.
 #'
-#' @return A numeric vector.
+#' @param graph A data.frame with variables `v1`, `v2`, w containing numeric elements,
+#' representing the edges of the graph. Arguments `v1` and `v2` specifies two nodes,
+#' and `w` specifies the weight or "distance" from node `v1` to node `v2`. Note that
+#' edges are expected to be defined both ways, e.g. `v1 = c(1,2)`, `v2 = c(2,1)`.
+#'
+#' @param init_node A numeric indicating the initial node in the graph.
+#'
+#' @return A numeric vector containing the shortest distance to the respective
+#' nodes from the initial node, sorted by node names in *ascending order*.
+#'
 #' @export
 #'
 #' @examples
-#' graph <- data.frame(v1=c(2, 3, ...), v2=c(3, 2, ...), w=c(1, 1, ...))
+#' graph <- data.frame(v1=c(2, 3), v2=c(3, 2), w=c(1, 1))
 #' dijkstra(graph, 2)
 dijkstra <- function(graph, init_node){
-  # This function does ...
 
   # ---V--- CHECK INPUT ---V---
   # Check graph argument
   stopifnot("argument \"graph\" is not data.frame." = is.data.frame(graph))
   if(length(graph) != 3)
-    stop("Incorrect number of columns in graph argument.")
+    stop("Incorrect number of columns in graph argument. Expected 3 (v1, v2, w).")
   if(!all(c("v1", "v2", "w") %in% colnames(graph)))
     stop("Incorrect columns/column-names in graph argument.")
 
   # Check init_node argument
   stopifnot("argument \"init_node\" is not numeric" = is.numeric(init_node))
-  # some kind of check that init_node exists inside graph
+  stopifnot("init_node is not present in graph." = init_node %in% unique(c(graph$v1, graph$v2)))
   # ---^--- CHECK INPUT ---^---
 
 
-  # THE DIJKSTRA ALGORITHM
-
   # ---V--- SETUP DIJKSTRA ---V---
-
-  # get the unique node-names
+  # Get the unique names of all nodes
   node_names <- unique(c(graph$v1, graph$v2))
 
+  # Put together a dataframe containing information about all nodes
   nodes <- data.frame(name = node_names,
                       visited = rep(FALSE, length(node_names)),
                       tenta_dist = rep(Inf, length(node_names)))
@@ -40,50 +47,55 @@ dijkstra <- function(graph, init_node){
   # Set the initial nodes tentative distance to 0
   nodes[which(nodes$name == init_node),"tenta_dist"] <- 0
 
+  # Start the algorithm in the initial node
+  current_node <- init_node
   # ---^--- SETUP DIJKSTRA ---^---
 
 
-
   # ---V--- DIJKSTRA LOOP ---V---
+  while(!all(nodes$visited)){
 
-  current_node <- init_node
-  while(!all(nodes$visited) & TRUE){#add the other stop condition(s)
-
-    # find neighbours of current node (ALSO MUST BE UNVISITED)
-    all_neigbours <- graph[graph[,1] == current_node,]$v2 #vector
+    # Find *unvisited* neighbours of current node
+    all_neigbours <- graph[graph[,1] == current_node,]$v2
     unvisited_neighbours <- nodes[(nodes$name %in% all_neigbours) & (nodes$visited == FALSE),]$name
 
+    # Iterate through the unvisited neighbours of the current node and update
+    # their tentative distances
     for(neighbour in unvisited_neighbours){ #c(2,3,4,5)
-      # update tenta dist
+      # Update tenta dist
       A <- nodes[which(nodes$name == current_node), "tenta_dist"] # Tent dist of current node
       B <- graph[graph[,1] == current_node & graph[,2] == neighbour,]$w # Weight of going from current node to this neighbour
 
-      # assign to each neighbour the smaller distance of
+      # Assign to each neighbour the smaller distance of
       # (their old tent) and (the new tent)
       new_tent_dist <- min(nodes[which(nodes$name == neighbour),"tenta_dist"], A+B)
       nodes[which(nodes$name == neighbour),"tenta_dist"] <- new_tent_dist
     }
     # Mark the current node as visited
-    #print(paste("marking", current_node, "as visited"))
     nodes[which(nodes$name == current_node),]$visited <- TRUE
 
-    # select new current node: the unvisited node with smallest tentative dist.
-    # sort by tenta_dist, get firt row, get name of that row.
-    #current_node <- arrange(nodes, tenta_dist)[1,]$name
-
+    # Check if all nodes have been visited
     if(nrow(nodes |> dplyr::filter(nodes$visited == FALSE)) == 0){break}
+    # perhaps this while loop should be a repeat loop
+    # then this line (just above) can be done more compactly, like in the while loop start.
 
-    # Filter out visited nodes, sort them by lowest tentative dist, extract col 1, and then
+    # Select new current node: the unvisited node with smallest tentative dist.
+    # Filter out visited nodes, sort remaining by lowest tentative dist, extract
+    # col 1, and then element 1.
     current_node <- nodes |>
       dplyr::filter(visited == FALSE) |>
       dplyr::arrange(tenta_dist) |>
       magrittr::extract2(1) |>
       magrittr::extract2(1)
-
-    #print(paste("making", current_node, "the current node"))
   }
-
   # ---^--- DIJKSTRA LOOP ---^---
 
-  return(nodes)
+
+  # Put together output; the tentative distances ordered by node name
+  output <- nodes |>
+    dplyr::arrange(name) |>
+    dplyr::select(tenta_dist) |>
+    magrittr::extract2(1)
+
+  return(output)
 }
