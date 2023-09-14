@@ -1,17 +1,18 @@
-#' Eulidean Function
+#' Euclidean Function
 #'
 #' @description
-#' A short description...
+#' In mathematics, the Euclidean algorithm or Euclid's algorithm, is an efficient method for computing the greatest common divisor (GCD) of two integers (numbers), the largest number that divides them both without a remainder.
 #'
 #'
 #' @param val1 A numeric value that should be compared with `val1`.
 #' @param val2 A numeric value that should be compared with `val2`.
 #'
-#' @return A numeric: the greatest common divisior of `val1` and `val2`.
+#' @return A numeric: the greatest common divisor of `val1` and `val2`.
 #'
 #' @examples
 #' euclidean(123612, 13892347912)
 #' euclidean(100, 1000)
+
 
 
 euclidean <- function(val1, val2) {
@@ -21,10 +22,12 @@ euclidean <- function(val1, val2) {
   }
   
   # Take the absolute values of val1 and val2
+  # GCD is calculated without regard to the sign of the input values
   val1 <- abs(val1)
   val2 <- abs(val2)
   
-  # Ensure that val1 is greater than or equal to val2
+  # Ensure that val1 is greater than or equal to val2.
+  # where val1 is greater than or equal to val2, if val1 is not greater than val2, swap val1 and val2.
   if (val1 < val2) {
     temp_b <- val1
     val1 <- val2
@@ -32,21 +35,14 @@ euclidean <- function(val1, val2) {
     
   }
   
+  #find the remainder , "remainder_result" and update val1 and val2 until val2 becomes 0. 
   while (val2 != 0) {
-    remainder <- val1 %% val2
+    remainder_result <- val1 %% val2
     val1 <- val2
-    val2 <- remainder
+    val2 <- remainder_result
   }
   
   return(val1)
 }
 
-# Test cases
-#result1 <- euclidean(123612, 13892347912)
-#cat("GCD of 123612 and 13892347912:", result1, "\n")  # Output: 4
 
-#result2 <- euclidean(-100, 1000)
-#cat("GCD of -100 and 1000:", result2, "\n")            # Output: 100
-
-#result3 <- euclidean(120, 144)
-#cat("GCD of 120 and 144:", result3, "\n")

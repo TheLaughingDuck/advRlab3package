@@ -2,7 +2,7 @@
 % Please edit documentation in R/euclidean.R
 \name{euclidean}
 \alias{euclidean}
-\title{Eulidean Function}
+\title{Euclidean Function}
 \usage{
 euclidean(val1, val2)
 }
@@ -12,10 +12,10 @@ euclidean(val1, val2)
 \item{val2}{A numeric value that should be compared with \code{val2}.}
 }
 \value{
-A numeric: the greatest common divisior of \code{val1} and \code{val2}.
+A numeric: the greatest common divisor of \code{val1} and \code{val2}.
 }
 \description{
-A short description...
+In mathematics, the Euclidean algorithm or Euclid's algorithm, is an efficient method for computing the greatest common divisor (GCD) of two integers (numbers), the largest number that divides them both without a remainder.
 }
 \examples{
 euclidean(123612, 13892347912)
