@@ -53,7 +53,7 @@ dijkstra <- function(graph, init_node){
 
 
   # ---V--- DIJKSTRA LOOP ---V---
-  while(!all(nodes$visited)){
+  repeat{#while(!all(nodes$visited)){
 
     # Find *unvisited* neighbours of current node
     all_neigbours <- graph[graph[,1] == current_node,]$v2
@@ -69,13 +69,14 @@ dijkstra <- function(graph, init_node){
       # Assign to each neighbour the smaller distance of
       # (their old tent) and (the new tent)
       new_tent_dist <- min(nodes[which(nodes$name == neighbour),"tenta_dist"], A+B)
-      nodes[which(nodes$name == neighbour),"tenta_dist"] <- new_tent_dist
+      nodes[which(nodes$name == neighbour), "tenta_dist"] <- new_tent_dist
     }
     # Mark the current node as visited
     nodes[which(nodes$name == current_node),]$visited <- TRUE
 
     # Check if all nodes have been visited
-    if(nrow(nodes |> dplyr::filter(nodes$visited == FALSE)) == 0){break}
+    if(all(nodes$visited)){break}
+    #if(nrow(nodes |> dplyr::filter(nodes$visited == FALSE)) == 0){break}
     # perhaps this while loop should be a repeat loop
     # then this line (just above) can be done more compactly, like in the while loop start.
 
@@ -83,7 +84,7 @@ dijkstra <- function(graph, init_node){
     # Filter out visited nodes, sort remaining by lowest tentative dist, extract
     # col 1, and then element 1.
     current_node <- nodes |>
-      dplyr::filter(visited == FALSE) |>
+      dplyr::filter(nodes$visited == FALSE) |>
       dplyr::arrange(tenta_dist) |>
       magrittr::extract2(1) |>
       magrittr::extract2(1)
@@ -93,7 +94,7 @@ dijkstra <- function(graph, init_node){
 
   # Put together output; the tentative distances ordered by node name
   output <- nodes |>
-    dplyr::arrange(name) |>
+    dplyr::arrange(nodes$name) |>
     dplyr::select(tenta_dist) |>
     magrittr::extract2(1)
 
