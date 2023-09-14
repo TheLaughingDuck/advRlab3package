@@ -48,3 +48,10 @@ See the book [R Packages](https://r-pkgs.org/whole-game.html#sec-whole-game-load
 ## Additional things to do (with this document)
 
 * Create a set of instructions for downloading and running this package.
+
+## Additional things to fix (BUGS)
+
+* when running `check()`, the following error is shown: "Error in euclidean(123612, 13892347912) : 
+     could not find function "euclidean".
+
+* There seems to be some kind of error with the Roxygen examples of both dijkstra and euclidean. They wont run.
