@@ -2,7 +2,7 @@
 % Please edit documentation in R/euclidean.R
 \name{euclidean}
 \alias{euclidean}
-\title{Write a Title here}
+\title{Eulidean Function}
 \usage{
 euclidean(val1, val2)
 }
