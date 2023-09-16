@@ -1,3 +1,5 @@
+[![R-CMD-check](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/R-CMD-check.yaml)
+
 # advRlab3package
  A repository for lab 3 in the course Advanced Programming in R
  
