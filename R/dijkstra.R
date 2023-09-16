@@ -14,11 +14,7 @@
 #' @return A numeric vector containing the shortest distance to the respective
 #' nodes from the initial node, sorted by node names in *ascending order*.
 #'
-#' @export
 #'
-#' @examples
-#' graph <- data.frame(v1=c(2, 3), v2=c(3, 2), w=c(1, 1))
-#' dijkstra(graph, 2)
 dijkstra <- function(graph, init_node){
 
   # ---V--- CHECK INPUT ---V---
