@@ -1,6 +1,4 @@
-<!-- badges: start -->
 [![check-standard](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/check-standard.yaml)
-<!-- badges: end -->
 
 # advRlab3package
  A repository for lab 3 in the course Advanced Programming in R
