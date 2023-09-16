@@ -1,13 +1,7 @@
 # advRlab3package
  A repository for lab 3 in the course Advanced Programming in R
  
-# Github Actions
-<!-- badges: start -->
-[![check-standard](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/check-standard.yaml)
-<!-- badges: end -->
-
- 
- See [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for help with formatting this type of document.
+See [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for help with formatting this type of document.
 
 ## Instructions for testing-driving this package
 
