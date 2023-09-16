@@ -22,7 +22,3 @@ nodes from the initial node, sorted by node names in \emph{ascending order}.
 \code{dijkstra()} employs the dijkstra algorithm to find the shortest path to each
 node from a given starting node in a network graph.
 }
-\examples{
-graph <- data.frame(v1=c(2, 3), v2=c(3, 2), w=c(1, 1))
-dijkstra(graph, 2)
-}

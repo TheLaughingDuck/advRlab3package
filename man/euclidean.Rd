@@ -17,7 +17,3 @@ A numeric: the greatest common divisor of \code{val1} and \code{val2}.
 \description{
 In mathematics, the Euclidean algorithm or Euclid's algorithm, is an efficient method for computing the greatest common divisor (GCD) of two integers (numbers), the largest number that divides them both without a remainder.
 }
-\examples{
-euclidean(123612, 13892347912)
-euclidean(100, 1000)
-}
