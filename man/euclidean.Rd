@@ -3,6 +3,9 @@
 \name{euclidean}
 \alias{euclidean}
 \title{Euclidean Function}
+\source{
+\href{https://en.wikipedia.org/wiki/Euclidean_algorithm}{The wikipedia page of the Euclidean Algorithm}
+}
 \usage{
 euclidean(val1, val2)
 }
