@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre")),
     person(given="Muditha",
            family="Cherangani",
-           email="your_email@example.com",
+           email="mcherangani@gmail.com",
            role=c("aut")))
 Description: This package contains two functions (euclidean and dijkstra)
              that respectively perform the Euclidean and Dijkstra algorithms.
