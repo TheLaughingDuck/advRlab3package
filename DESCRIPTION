@@ -1,6 +1,6 @@
 Package: advRlab3package
 Title: A package for the Euclidean algorithm, and the Dijkstra algorithm
-Version: 1.0
+Version: 1.0.0
 Authors@R:
   c(person(given="Simon",
            family="Jorstedt",
@@ -21,7 +21,8 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     dplyr,
-    magrittr
+    magrittr,
+    rlang
 Depends: 
     R (>= 2.10)
 LazyData: true

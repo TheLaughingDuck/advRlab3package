@@ -14,6 +14,8 @@
 #' nodes from the initial node, sorted by node names in *ascending order*.
 #'
 #' @source [The wikipedia page of the Dijkstra Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+
 dijkstra <- function(graph, init_node){
 
   # ---V--- CHECK INPUT ---V---
@@ -78,9 +80,12 @@ dijkstra <- function(graph, init_node){
     # Select new current node: the unvisited node with smallest tentative dist.
     # Filter out visited nodes, sort remaining by lowest tentative dist, extract
     # col 1, and then element 1.
+
+    #return(nodes)
+
     current_node <- nodes |>
       dplyr::filter(nodes$visited == FALSE) |>
-      dplyr::arrange(tenta_dist) |>
+      dplyr::arrange(.data$tenta_dist) |>
       magrittr::extract2(1) |>
       magrittr::extract2(1)
   }
@@ -89,9 +94,14 @@ dijkstra <- function(graph, init_node){
 
   # Put together output; the tentative distances ordered by node name
   output <- nodes |>
-    dplyr::arrange(nodes$name) |>
-    dplyr::select(tenta_dist) |>
-    magrittr::extract2(1)
+    dplyr::arrange(nodes$name)
+
+  output <- output[,3]
+
+  # output <- nodes |>
+  #   dplyr::arrange(nodes$name) |>
+  #   dplyr::select(tenta_dist) |>
+  #   magrittr::extract2(1)
 
   return(output)
 }
