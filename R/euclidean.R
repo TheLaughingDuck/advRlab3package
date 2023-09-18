@@ -9,6 +9,8 @@
 #'
 #' @return A numeric: the greatest common divisor of `val1` and `val2`.
 #'
+#' @source [The wikipedia page of the Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
+#'
 #'
 euclidean <- function(val1, val2) {
   # Check if both val1 and val2 are integers

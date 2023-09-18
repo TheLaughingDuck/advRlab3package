@@ -1,7 +1,6 @@
 #' Dijkstra's algorithm
 #'
-#' @description
-#' `dijkstra()` employs the dijkstra algorithm to find the shortest path to each
+#' @description `dijkstra()` employs the dijkstra algorithm to find the shortest path to each
 #' node from a given starting node in a network graph.
 #'
 #' @param graph A data.frame with variables `v1`, `v2`, w containing numeric elements,
@@ -14,7 +13,7 @@
 #' @return A numeric vector containing the shortest distance to the respective
 #' nodes from the initial node, sorted by node names in *ascending order*.
 #'
-#'
+#' @source [The wikipedia page of the Dijkstra Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 dijkstra <- function(graph, init_node){
 
   # ---V--- CHECK INPUT ---V---
