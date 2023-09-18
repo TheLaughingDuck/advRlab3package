@@ -1,7 +1,7 @@
 #' Euclidean Function
 #'
 #' @description
-#' In mathematics, the Euclidean algorithm or Euclid's algorithm, is an efficient method for computing the greatest common divisor (GCD) of two integers (numbers), the largest number that divides them both without a remainder.
+#' The Euclidean algorithm is a way to find the Greatest Common Divisor (GCD) of two positive integers.
 #'
 #'
 #' @param val1 A numeric value that should be compared with `val1`.
