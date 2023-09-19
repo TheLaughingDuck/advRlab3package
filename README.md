@@ -43,8 +43,6 @@ See the book [R Packages](https://r-pkgs.org/whole-game.html#sec-whole-game-load
 * Run `use_test("new_function")` where new_function is a function you wish to create unit tests for.
 
 * Create the unit tests yourself (using this template for reference):
-
-See [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for help with formatting this type of document.
   ```
   test_that("Text explaining what this test will test", {
     expect_equal(new_function(arg1, arg2), expected_output)
@@ -52,3 +50,6 @@ See [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getti
   ```
 
 * Finally you can test all your unit tests by running `test()` in the R console.
+
+
+See [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for help with formatting this type of document.
