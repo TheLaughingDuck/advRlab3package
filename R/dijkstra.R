@@ -14,6 +14,7 @@
 #' nodes from the initial node, sorted by node names in *ascending order*.
 #'
 #' @source [The wikipedia page of the Dijkstra Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+#'
 
 
 dijkstra <- function(graph, init_node){

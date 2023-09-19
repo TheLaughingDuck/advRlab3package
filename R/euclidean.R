@@ -11,7 +11,8 @@
 #'
 #' @source [The wikipedia page of the Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
 #'
-#'
+
+
 euclidean <- function(val1, val2) {
   # Check if both val1 and val2 are integers
   if (val1 %% 1 != 0 || val2 %% 1 != 0) {
