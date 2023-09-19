@@ -1,7 +1,14 @@
 [![R-CMD-check](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TheLaughingDuck/advRlab3package/actions/workflows/R-CMD-check.yaml)
 
 # advRlab3package
- A repository for lab 3 in the course Advanced Programming in R
+A repository for lab 3 in the course Advanced Programming in R.
+
+## Downloading and running this package
+* Open either RStudio or RGui. In the console, load the `devtools` package.
+
+* Run `devtools::install_github("TheLaughingDuck/advRlab3package")`.
+
+* This package should now be installed on your machine. Try running `?advRlab3package`, `?dijkstra` and `?euclidean`.
  
 See [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for help with formatting this type of document.
 
@@ -46,14 +53,3 @@ See the book [R Packages](https://r-pkgs.org/whole-game.html#sec-whole-game-load
   ```
 
 * Finally you can test all your unit tests by running `test()` in the R console.
-
-## Additional things to do (with this document)
-
-* Create a set of instructions for downloading and running this package.
-
-## Additional things to fix (BUGS)
-
-* when running `check()`, the following error is shown: "Error in euclidean(123612, 13892347912) : 
-     could not find function "euclidean".
-
-* There seems to be some kind of error with the Roxygen examples of both dijkstra and euclidean. They wont run.
