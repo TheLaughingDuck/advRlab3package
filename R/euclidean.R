@@ -11,6 +11,7 @@
 #'
 #' @source [The wikipedia page of the Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
 #'
+#' @export
 
 
 euclidean <- function(val1, val2) {

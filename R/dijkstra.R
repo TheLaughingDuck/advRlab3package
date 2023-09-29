@@ -15,6 +15,7 @@
 #'
 #' @source [The wikipedia page of the Dijkstra Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 #'
+#' @export
 
 
 dijkstra <- function(graph, init_node){
