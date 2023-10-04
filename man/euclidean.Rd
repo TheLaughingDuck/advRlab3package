@@ -10,9 +10,9 @@
 euclidean(val1, val2)
 }
 \arguments{
-\item{val1}{A numeric value that should be compared with \code{val1}.}
+\item{val1}{A numeric value that should be compared with \code{val2}.}
 
-\item{val2}{A numeric value that should be compared with \code{val2}.}
+\item{val2}{A numeric value that should be compared with \code{val1}.}
 }
 \value{
 A numeric: the greatest common divisor of \code{val1} and \code{val2}.

@@ -15,7 +15,11 @@
 #'
 #' @source [The wikipedia page of the Dijkstra Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 #'
-#' @export
+#' @importFrom dplyr arrange filter
+#' @importFrom magrittr %>% extract2
+#' @importFrom rlang .data
+#'
+#' @export dijkstra
 
 
 dijkstra <- function(graph, init_node){
@@ -75,7 +79,7 @@ dijkstra <- function(graph, init_node){
 
     # Check if all nodes have been visited
     if(all(nodes$visited)){break}
-    #if(nrow(nodes |> dplyr::filter(nodes$visited == FALSE)) == 0){break}
+    #if(nrow(nodes %>% filter(nodes$visited == FALSE)) == 0){break}
     # perhaps this while loop should be a repeat loop
     # then this line (just above) can be done more compactly, like in the while loop start.
 
@@ -85,25 +89,25 @@ dijkstra <- function(graph, init_node){
 
     #return(nodes)
 
-    current_node <- nodes |>
-      dplyr::filter(nodes$visited == FALSE) |>
-      dplyr::arrange(.data$tenta_dist) |>
-      magrittr::extract2(1) |>
-      magrittr::extract2(1)
+    current_node <- nodes %>%
+      filter(nodes$visited == FALSE) %>%
+      arrange(.data$tenta_dist) %>%
+      extract2(1) %>%
+      extract2(1)
   }
   # ---^--- DIJKSTRA LOOP ---^---
 
 
   # Put together output; the tentative distances ordered by node name
-  output <- nodes |>
-    dplyr::arrange(nodes$name)
+  output <- nodes %>%
+    arrange(nodes$name)
 
   output <- output[,3]
 
-  # output <- nodes |>
-  #   dplyr::arrange(nodes$name) |>
-  #   dplyr::select(tenta_dist) |>
-  #   magrittr::extract2(1)
+  # output <- nodes %>%
+  #   arrange(nodes$name) %>%
+  #   select(tenta_dist) %>%
+  #   extract2(1)
 
   return(output)
 }

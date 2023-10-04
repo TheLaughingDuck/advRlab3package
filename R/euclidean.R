@@ -4,14 +4,14 @@
 #' The Euclidean algorithm is a way to find the Greatest Common Divisor (GCD) of two positive integers.
 #'
 #'
-#' @param val1 A numeric value that should be compared with `val1`.
-#' @param val2 A numeric value that should be compared with `val2`.
+#' @param val1 A numeric value that should be compared with `val2`.
+#' @param val2 A numeric value that should be compared with `val1`.
 #'
 #' @return A numeric: the greatest common divisor of `val1` and `val2`.
 #'
 #' @source [The wikipedia page of the Euclidean Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
 #'
-#' @export
+#' @export euclidean
 
 
 euclidean <- function(val1, val2) {

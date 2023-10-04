@@ -2,4 +2,8 @@
 
 export(dijkstra)
 export(euclidean)
+importFrom(dplyr,arrange)
+importFrom(dplyr,filter)
+importFrom(magrittr,"%>%")
+importFrom(magrittr,extract2)
 importFrom(rlang,.data)
